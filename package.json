@@ -1,0 +1,22 @@
+{
+  "name": "dropdown-menu",
+  "version": "1.0.0",
+  "description": "dropdown menu",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [
+    "dropdown",
+    "drop-down",
+    "menu",
+    "responsive"
+  ],
+  "author": "balexandermunoz",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
