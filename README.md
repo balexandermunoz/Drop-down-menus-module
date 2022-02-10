@@ -8,10 +8,10 @@ Get awesome drop-down menus and really easy to implement
 
 # How to use
 You need to specify the parentNode or div where you will append the drop-down and the name. 
-```
+```javascript
 const exampleDropdown = new Dropdown('.someDiv','Name',options);
 ```
-```
+```javascript
 import Dropdown from "Dropdown";
 
 // New dropdown inserted in div1:
