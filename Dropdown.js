@@ -1,9 +1,12 @@
 class Dropdown {
   constructor(divSelector,name, options = {}){
-
     this.divSelector = divSelector;
     this.name = name;
 
+    // showType option:
+    this.showType = (options.showType === 'click') ? 'click' : 'mouseenter';
+
+    // animation option:
     if(typeof(options.animation) === 'function') this.animation = options.animation;
     else if (options.animation === 'animation1') this.animation = this.animation1;
     else if (options.animation === 'animation2') this.animation = this.animation2;
@@ -12,9 +15,19 @@ class Dropdown {
     else if (options.animation === 'animation5') this.animation = this.animation5;
     else this.animation = this.animation1;
 
+    // navColor and liColor option:
     this.navColors = this.colorValues(options.navColor) || this.colorValues('#ddd');
     this.liColors = this.colorValues(options.liColor) || this.colorValues('#666');
 
+    // width and height options:
+    this.width = options.width || '150px';
+    this.height = options.height || '65px';
+
+    // fontsize and texTransform options:
+    this.fontSize = options.fontSize || '14px';
+    this.textTransform = options.textTransform || 'uppercase';
+
+    //
     const div = document.querySelector(this.divSelector);
     const nav = this.createNav()
     this.ul = this.createUl()
@@ -52,12 +65,49 @@ class Dropdown {
     return elementName
   }
 
+  stylingNav(nav){
+    nav.style.display = 'flex'
+    nav.style.justifyContent = 'center';
+    nav.style.alignItems = 'center';
+    nav.style.textAlign = 'center';
+    nav.style.background = `rgba( ${this.navColors[0]}, ${this.navColors[1]}, ${this.navColors[2]} )`;
+    nav.style.borderRadius = '5px';
+    nav.style.width = this.width;
+    nav.style.height = this.height;
+    nav.style.position = 'relative';
+    nav.style.textTransform = this.textTransform;
+    nav.style.fontSize = this.fontSize;
+    nav.style.color = 'rgba(0, 0, 0, 0.7)';
+    nav.style.cursor = 'pointer';
+    nav.addEventListener(this.showType, ()=>{ 
+      nav.style.background = `rgba( ${this.navColors[0]-40}, ${this.navColors[1]-40}, ${this.navColors[2]-40} )`;
+      //If ul has no elements, return to avoid errors:
+      if(this.ul.childNodes.length === 0) return;
+      this.ul.lastChild.style.borderRadius = '0px 0px 5px 5px'
+      this.ul.childNodes.forEach( (element,idx)=> {
+        element.style.display = 'flex'; //Default trigger
+        this.animation(element,idx);
+      })
+    })
+
+    nav.addEventListener('mouseleave', ()=>{
+      nav.style.background = `rgba( ${this.navColors[0]}, ${this.navColors[1]}, ${this.navColors[2]} )`;
+      if(this.ul.childNodes.length === 0) return;
+      this.ul.childNodes.forEach( (element)=> {
+        element.style.display = 'none';
+      })
+    })
+  }
+
   stylingLi(element){
     element.style.background =`rgba( ${this.liColors[0]}, ${this.liColors[1]}, ${this.liColors[2]} )`;
     element.style.color = 'rgba(255, 255, 255, 0.7)';
     element.style.display = 'none'; //Default trigger
+    element.style.justifyContent = 'center';
+    element.style.alignItems = 'center';
     element.style.opacity = '1';
     element.style.textDecoration = 'none';
+    element.style.height = this.height;
     element.style.margin = '0';
     element.style.transformOrigin = 'top center'
     element.addEventListener('mouseenter', ()=>{ 
@@ -77,35 +127,6 @@ class Dropdown {
     ul.style.padding = '0';
     ul.style.margin = '0';
     ul.style.perspective = '1000px';
-  }
-
-  stylingNav(nav){
-    nav.style.textAlign = 'center';
-    nav.style.background = `rgba( ${this.navColors[0]}, ${this.navColors[1]}, ${this.navColors[2]} )`;
-    nav.style.borderRadius = '5px';
-    nav.style.width = '150px';
-    nav.style.lineHeight = '65px';
-    nav.style.position = 'relative';
-    nav.style.textTransform = 'uppercase';
-    nav.style.fontSize = '14px';
-    nav.style.color = 'rgba(0, 0, 0, 0.7)';
-    nav.style.cursor = 'pointer';
-
-    nav.addEventListener('mouseenter', ()=>{ 
-      nav.style.background = `rgba( ${this.navColors[0]-40}, ${this.navColors[1]-40}, ${this.navColors[2]-40} )`;
-      this.ul.lastChild.style.borderRadius = '0px 0px 5px 5px'
-      this.ul.childNodes.forEach( (element,idx)=> {
-        element.style.display = 'block'; //Default trigger
-        this.animation(element,idx);
-      })
-    })
-
-    nav.addEventListener('mouseleave', ()=>{
-      nav.style.background = `rgba( ${this.navColors[0]}, ${this.navColors[1]}, ${this.navColors[2]} )`;
-      this.ul.childNodes.forEach( (element)=> {
-        element.style.display = 'none';
-      })
-    })
   }
 
   animation1(element,idx){
@@ -250,4 +271,4 @@ class Dropdown {
 
 }
 
-export default Dropdown;
+module.exports = Dropdown;

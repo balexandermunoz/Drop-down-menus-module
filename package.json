@@ -1,10 +1,11 @@
 {
-  "name": "dropdown-menu",
-  "version": "1.0.0",
+  "name": "dropthingsjs",
+  "version": "1.2.2",
   "description": "dropdown menu",
-  "private": true,
+  "private": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node Dropdown.test.js",
+    "prepublish": "npm test",
     "build": "webpack"
   },
   "keywords": [
@@ -18,5 +19,15 @@
   "devDependencies": {
     "webpack": "^5.68.0",
     "webpack-cli": "^4.9.2"
-  }
+  },
+  "main": "index.js",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balexandermunoz/Drop-down-menus-module.git"
+  },
+  "bugs": {
+    "url": "https://github.com/balexandermunoz/Drop-down-menus-module/issues"
+  },
+  "homepage": "https://github.com/balexandermunoz/Drop-down-menus-module#readme"
 }
