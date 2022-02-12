@@ -128,13 +128,14 @@ class Dropdown {
     ul.style.margin = '0';
     ul.style.perspective = '1000px';
   }
-
+  
+  //The animations shouldn't come from upper side, but probabpli clicking trigger the first link
   animation1(element,idx){
     element.animate([
       // keyframes
       { //from
         opacity: 0,
-        transform: 'translateY(-30px)',
+        transform: 'translateY(30px)',
       },
       { //To
         opacity: 1,
