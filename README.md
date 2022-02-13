@@ -50,11 +50,11 @@ You could pass the type of menu. By default is 'static'.
 ## Examples: 
 ```javascript
 import {Menu} from "dropthingsjs";
-const Menu = new Menu('.Menu-div','more-collapse');
-Menu.appendElement('Element 1');
-Menu.appendElement('Element 2');
-Menu.appendElement('Element 3');
-Menu.appendElement('Element 4');
+const menu = new Menu('.Menu-div','more-collapse');
+menu.appendElement('Element 1');
+menu.appendElement('Element 2');
+menu.appendElement('Element 3');
+menu.appendElement('Element 4');
 ```
 
 ## Options: 
