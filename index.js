@@ -1,2 +1,4 @@
-module.exports = require('./Dropdown.js')
-//It's a simple try. 
+import Dropdown from "./Dropdown";
+import Menu from "./Menu";
+
+export {Dropdown,Menu}

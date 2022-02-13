@@ -1,6 +1,5 @@
 class Dropdown {
   constructor(divSelector,name, options = {}){
-    this.divSelector = divSelector;
     this.name = name;
 
     // showType option:
@@ -28,7 +27,9 @@ class Dropdown {
     this.textTransform = options.textTransform || 'uppercase';
 
     //
-    const div = document.querySelector(this.divSelector);
+    let div;
+    if(typeof(divSelector) === 'string') div = document.querySelector(divSelector);
+    else div = divSelector;
     const nav = this.createNav()
     this.ul = this.createUl()
 
