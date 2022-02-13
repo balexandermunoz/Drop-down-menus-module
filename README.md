@@ -49,13 +49,12 @@ You could pass the type of menu. By default is 'static'.
 
 ## Examples: 
 ```javascript
-import {Dropdown} from "dropthingsjs";
-// New dropdown inserted in div1:
-const drop1 = new Dropdown('.Menu-div','');
-drop1.appendElement('Element 1');
-drop1.appendElement('Element 2');
-drop1.appendElement('Element 3');
-drop1.appendElement('Element 4');
+import {Menu} from "dropthingsjs";
+const Menu = new Menu('.Menu-div','more-collapse');
+Menu.appendElement('Element 1');
+Menu.appendElement('Element 2');
+Menu.appendElement('Element 3');
+Menu.appendElement('Element 4');
 ```
 
 ## Options: 
