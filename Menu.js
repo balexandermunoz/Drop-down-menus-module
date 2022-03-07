@@ -16,7 +16,10 @@ class Menu {
     // dropdown options: 
     this.dropdownOptions = dropdownOptions || {width:'100px',height:'100%',navColor:this.navColor}
 
-    const div = document.querySelector(divSelector);
+    let div;
+    if(typeof(divSelector) === 'string') div = document.querySelector(divSelector);
+    else div = divSelector;
+
     const moreBtnDiv = document.createElement('div');
     this.moreBtnDiv = moreBtnDiv;
 
@@ -100,6 +103,7 @@ class Menu {
     
     this.elements.push(element)
     this.tabsDiv.appendChild(element)
+    this.toggleMoreElements();
     return element
   }
 

@@ -4,13 +4,13 @@ Get awesome drop-down menus and mobile menus. Really easy to implement
 
 # Installation
 
-`npm i dropthingsjs --save`
+`npm i dropthings --save`
 
 # How to use
 You need to specify the selector (DOMstring) where you will append the drop-down or the parentNode. 
 
 ```javascript
-import {Dropdown,Menu} from "dropthingsjs";
+import {Dropdown,Menu} from "dropthings";
 const exampleDropdown = new Dropdown('.someDivClass','Name',options);
 const exampleMenu  =new Menu('.anotherDiv','menuType',options,dropdownOptions);
 
@@ -24,7 +24,7 @@ Here you need to specify the name of this drop-down. The name will be the text i
 
 ## Examples: 
 ```javascript
-import {Dropdown} from "dropthingsjs";
+import {Dropdown} from "dropthings";
 // New dropdown inserted in div1:
 const drop1 = new Dropdown('.dropdown-div1','Animation 1');
 drop1.appendElement('Element 1');
@@ -49,7 +49,7 @@ You could pass the type of menu. By default is 'static'.
 
 ## Examples: 
 ```javascript
-import {Menu} from "dropthingsjs";
+import {Menu} from "dropthings";
 const menu = new Menu('.Menu-div','more-collapse');
 menu.appendElement('Element 1');
 menu.appendElement('Element 2');
@@ -61,3 +61,23 @@ menu.appendElement('Element 4');
 * *navColor:* -string: rgba or hexagesimal or color name. This is the color of the button. Default '#ddd'.
 * *height:* -string: a valid imput for a height style. eg '10px' or '100%'. Default '65px'.
 * *dropdownOptions:* See [dropdown options](#options)
+
+# Slider:
+You need pass the divSelector or when you want to append your slider, also the image Width and image Height. 
+
+## Examples
+```javascript
+import {Slider} from "dropthings";
+const slider1 = new Slider('.slider',450,450,{autoSlide:5000, frameColor:'gray'});
+slider1.appendElement('images/unsized-image1.jpg');
+slider1.appendElement('images/unsized-image2.jpg');
+slider1.appendElement('images/unsized-image3.jpg');
+slider1.appendElement('images/unsized-image4.jpg');
+```
+
+## Options: 
+* *imgHeight:* -number (in pixels). By default its equal to imgWidth, but you should pass this argument too. 
+* *autoSlide:* -number (in miliseconds) or 'none'. The number is how often the image will change. 'none' means not auto slide Default: 5000;
+* *frameSize:* -number (pixels). If you want a frame. Default 10.
+* *frameColor:* -color. A valid color for your frame.
+* *borderRadius:* -string. It could be in pixels, procentage or wathever. Default 20px. 

@@ -1,6 +1,6 @@
 {
-  "name": "dropthingsjs",
-  "version": "1.2.3",
+  "name": "dropthings",
+  "version": "1.2.0",
   "description": "dropdown menu",
   "private": false,
   "scripts": {
@@ -11,8 +11,10 @@
   "keywords": [
     "dropdown",
     "drop-down",
-    "menu",
-    "responsive"
+    "menus",
+    "responsive",
+    "mobile",
+    "collapse"
   ],
   "author": "balexandermunoz",
   "license": "ISC",
